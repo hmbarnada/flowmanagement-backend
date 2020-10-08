@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.flowmanagement.model.Condition;
-import com.flowmanagement.service.IConditionService;
+import com.flowmanagement.model.ConversionType;
+import com.flowmanagement.service.IConversionTypeService;
 
 @RestController
-@RequestMapping("/condition")
-public class ConditionController {
+@RequestMapping("/conversion_type")
+public class ConversionTypeController {
 
 	@Autowired
-	private IConditionService service;
+	private IConversionTypeService service;
 	
 	@GetMapping
-	public List<Condition> listar(){
+	public List<ConversionType> listar(){
 		return service.listar();
 	}
 	
 	@GetMapping("/{id}")
-	public Condition listarPorId(@PathVariable("id") Integer id) {
+	public ConversionType listarPorId(@PathVariable("id") Integer id) {
 		return service.listarPorId(id);
 	}
 	
 	@PostMapping
-	public Condition registrar(@RequestBody Condition obj) {
+	public ConversionType registrar(@RequestBody ConversionType obj) {
 		return service.registrar(obj);
 	}
 	
 	@PutMapping
-	public Condition modificar(@RequestBody Condition obj) {
+	public ConversionType modificar(@RequestBody ConversionType obj) {
 		return service.modificar(obj);
 	}
 	

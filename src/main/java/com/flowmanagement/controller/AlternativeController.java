@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.flowmanagement.model.Condition;
-import com.flowmanagement.service.IConditionService;
+import com.flowmanagement.model.Alternative;
+import com.flowmanagement.service.IAlternativeService;
 
 @RestController
-@RequestMapping("/condition")
-public class ConditionController {
+@RequestMapping("/alternative")
+public class AlternativeController {
 
 	@Autowired
-	private IConditionService service;
+	private IAlternativeService service;
 	
 	@GetMapping
-	public List<Condition> listar(){
+	public List<Alternative> listar(){
 		return service.listar();
 	}
 	
 	@GetMapping("/{id}")
-	public Condition listarPorId(@PathVariable("id") Integer id) {
+	public Alternative listarPorId(@PathVariable("id") Integer id) {
 		return service.listarPorId(id);
 	}
 	
 	@PostMapping
-	public Condition registrar(@RequestBody Condition obj) {
+	public Alternative registrar(@RequestBody Alternative obj) {
 		return service.registrar(obj);
 	}
 	
 	@PutMapping
-	public Condition modificar(@RequestBody Condition obj) {
+	public Alternative modificar(@RequestBody Alternative obj) {
 		return service.modificar(obj);
 	}
 	
