@@ -1,12 +1,19 @@
 package com.flowmanagement.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-public class Condition {
-	
+
+@Entity
+@Table(name = "conditionn")
+public class Condition {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -17,9 +24,11 @@ public class Condition {
 	@Column(name = "stepId")
 	private String stepId;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_condition_type", nullable = false, foreignKey = @ForeignKey(name = "FK_condition_type"))
 	private ConditionType conditionType;
 	
-	private ConditionElement conditionsEnableAlternative;
+	//private ConditionElement conditionsEnableAlternative;
 	
 	public Integer getId() {
 		return id;
@@ -45,11 +54,11 @@ public class Condition {
 	public void setConditionType(ConditionType conditionType) {
 		this.conditionType = conditionType;
 	}
-	public ConditionElement getConditionsEnableAlternative() {
-		return conditionsEnableAlternative;
-	}
-	public void setConditionsEnableAlternative(ConditionElement conditionsEnableAlternative) {
-		this.conditionsEnableAlternative = conditionsEnableAlternative;
-	}
+//	public ConditionElement getConditionsEnableAlternative() {
+//		return conditionsEnableAlternative;
+//	}
+//	public void setConditionsEnableAlternative(ConditionElement conditionsEnableAlternative) {
+//		this.conditionsEnableAlternative = conditionsEnableAlternative;
+//	}
 
 }

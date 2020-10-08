@@ -23,9 +23,6 @@ public class ComponentType {
     @Column(name = "label")
     private String label;
 
-    @ManyToOne
-    @JoinColumn(name = "parameter_id")
-    private ComponentParameter parameter;
 
 	public Integer getId() {
 		return id;
@@ -51,11 +48,4 @@ public class ComponentType {
 		this.label = label;
 	}
 
-	public ComponentParameter getParameter() {
-		return parameter;
-	}
-
-	public void setParameter(ComponentParameter parameter) {
-		this.parameter = parameter;
-	}   
 }

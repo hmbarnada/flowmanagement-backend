@@ -2,9 +2,12 @@ package com.flowmanagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +26,11 @@ public class ComponentParameter {
 
     @Column(name = "value")
     private String value;
+    
+    @ManyToOne
+	@JoinColumn(name = "id_component_type", nullable = false, foreignKey = @ForeignKey(name = "FK_component_parameter_component_tye"))
+	private ComponentType componentType;
+
 
 	public Integer getId() {
 		return id;
@@ -54,5 +62,12 @@ public class ComponentParameter {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+	public ComponentType getComponentType() {
+		return componentType;
+	}
+
+	public void setComponentType(ComponentType componentType) {
+		this.componentType = componentType;
 	}
 }

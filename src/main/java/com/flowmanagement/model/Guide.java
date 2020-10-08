@@ -2,10 +2,14 @@ package com.flowmanagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "guide")
@@ -23,9 +27,15 @@ public class Guide {
 	
 	@Column(name = "mainStepId")
 	private String mainStepId;
-    
-	//private Step step;
-    //private Operation operation;
+  
+	
+	@ManyToOne
+	@JoinColumn(name = "id_step", nullable = false, foreignKey = @ForeignKey(name = "FK_guide_step"))
+	private Step step;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_operation", nullable = false, foreignKey = @ForeignKey(name = "FK_guide_operation"))
+	private Operation operation;
     
 	public Integer getGuideId() {
 		return id;
@@ -51,7 +61,7 @@ public class Guide {
 	public void setMainStepId(String mainStepId) {
 		this.mainStepId = mainStepId;
 	}
-	/*public Step getStep() {
+	public Step getStep() {
 		return step;
 	}
 	public void setStep(Step step) {
@@ -62,5 +72,5 @@ public class Guide {
 	}
 	public void setOperation(Operation operation) {
 		this.operation = operation;
-	}*/
+	}
 }
