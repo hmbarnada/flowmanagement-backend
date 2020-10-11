@@ -16,7 +16,7 @@ import com.flowmanagement.model.Conversion;
 import com.flowmanagement.service.IConversionService;
 
 @RestController
-@RequestMapping("/conversion")
+@RequestMapping("/conversions")
 public class ConversionController {
 	
 	@Autowired

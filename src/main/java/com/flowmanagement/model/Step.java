@@ -2,9 +2,12 @@ package com.flowmanagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,51 +18,81 @@ public class Step {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "name")
+	private String name;
+	
 	@Column(name = "label")
 	private String label;
 	
-	@Column(name = "text")
-	private String text;
+	@Column(name = "nextStep")
+	private Integer nextStep;
 	
-	//private Operation operation;
-	//private Alternative alternative;
-	//private Document referenceDoc;
+	@ManyToOne
+	@JoinColumn(name = "id_component", nullable = false, foreignKey = @ForeignKey(name = "FK_step_component"))
+	private Component component;
 	
-	public Integer getStepId() {
+	@ManyToOne
+	@JoinColumn(name = "id_alternative", nullable = false, foreignKey = @ForeignKey(name = "FK_step_alternative"))
+	private Alternative alternative;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_operation", nullable = false, foreignKey = @ForeignKey(name = "FK_step_operation"))
+	private Operation operation;
+
+	public Integer getId() {
 		return id;
 	}
-	public void setStepId(Integer id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getLabel() {
 		return label;
 	}
+
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	public String getText() {
-		return text;
+
+	public Integer getNextStep() {
+		return nextStep;
 	}
-	public void setText(String text) {
-		this.text = text;
+
+	public void setNextStep(Integer nextStep) {
+		this.nextStep = nextStep;
 	}
-	/*public Operation getOperation() {
-		return operation;
+
+	public Component getComponent() {
+		return component;
 	}
-	public void setOperation(Operation operation) {
-		this.operation = operation;
+
+	public void setComponent(Component component) {
+		component = component;
 	}
+
 	public Alternative getAlternative() {
 		return alternative;
 	}
+
 	public void setAlternative(Alternative alternative) {
-		this.alternative = alternative;
+		alternative = alternative;
 	}
-	public Document getReferenceDoc() {
-		return referenceDoc;
+
+	public Operation getOperation() {
+		return operation;
 	}
-	public void setReferenceDoc(Document referenceDoc) {
-		this.referenceDoc = referenceDoc;
-	}*/
+
+	public void setOperation(Operation operation) {
+		operation = operation;
+	}
 
 }

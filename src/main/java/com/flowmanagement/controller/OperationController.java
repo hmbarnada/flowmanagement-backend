@@ -16,7 +16,7 @@ import com.flowmanagement.model.Operation;
 import com.flowmanagement.service.IOperationService;
 
 @RestController
-@RequestMapping("/operation")
+@RequestMapping("/operations")
 public class OperationController {
 
 	@Autowired

@@ -23,7 +23,6 @@ public class ComponentType {
     @Column(name = "label")
     private String label;
 
-
 	public Integer getId() {
 		return id;
 	}

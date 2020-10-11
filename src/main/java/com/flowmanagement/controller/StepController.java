@@ -16,7 +16,7 @@ import com.flowmanagement.model.Step;
 import com.flowmanagement.service.IStepService;
 
 @RestController
-@RequestMapping("/step")
+@RequestMapping("/steps")
 public class StepController {
 	
 	@Autowired

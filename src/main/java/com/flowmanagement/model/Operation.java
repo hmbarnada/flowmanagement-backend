@@ -2,9 +2,12 @@ package com.flowmanagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,30 +23,14 @@ public class Operation {
 	
 	@Column(name = "label")
 	private String label;
-
-	@Column(name = "visible")
-    private Boolean visible;
 	
-	@Column(name = "preExecute")
-    private Boolean preExecute;
+	@ManyToOne
+	@JoinColumn(name = "id_operation_type", nullable = false, foreignKey = @ForeignKey(name = "FK_operation_operation_type"))
+	private OperationType operationType;
 	
-	@Column(name = "comment")
-	private String comment;
-	
-	@Column(name = "commentAtEndExecution")
-	private String commentAtEndExecution;
-	
-	@Column(name = "title")
-	private String title;
-	
-	@Column(name = "automatic")
-    private Boolean automatic;
-	
-	@Column(name = "pauseExecution")
-    private Boolean pauseExecution;
-	
-	@Column(name = "operationOrder")
-    private Integer operationOrder;
+	@ManyToOne
+	@JoinColumn(name = "id_guide", nullable = false, foreignKey = @ForeignKey(name = "FK_guide_operation_type"))
+	private Guide guide;
 	
 	public Integer getId() {
 		return id;
@@ -69,67 +56,20 @@ public class Operation {
 		this.label = label;
 	}
 
-	public Boolean getVisible() {
-		return visible;
+	public OperationType getOperationType() {
+		return operationType;
 	}
 
-	public void setVisible(Boolean visible) {
-		this.visible = visible;
+	public void setOperationType(OperationType operationType) {
+		operationType = operationType;
 	}
 
-	public Boolean getPreExecute() {
-		return preExecute;
+	public Guide getGuide() {
+		return guide;
 	}
 
-	public void setPreExecute(Boolean preExecute) {
-		this.preExecute = preExecute;
+	public void setGuide(Guide guide) {
+		guide = guide;
 	}
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
-	public String getCommentAtEndExecution() {
-		return commentAtEndExecution;
-	}
-
-	public void setCommentAtEndExecution(String commentAtEndExecution) {
-		this.commentAtEndExecution = commentAtEndExecution;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Boolean getAutomatic() {
-		return automatic;
-	}
-
-	public void setAutomatic(Boolean automatic) {
-		this.automatic = automatic;
-	}
-
-	public Boolean getPauseExecution() {
-		return pauseExecution;
-	}
-
-	public void setPauseExecution(Boolean pauseExecution) {
-		this.pauseExecution = pauseExecution;
-	}
-
-	public Integer getOperationOrder() {
-		return operationOrder;
-	}
-
-	public void setOperationOrder(Integer operationOrder) {
-		this.operationOrder = operationOrder;
-	}
 }

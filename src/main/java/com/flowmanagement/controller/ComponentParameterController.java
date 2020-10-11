@@ -16,7 +16,7 @@ import com.flowmanagement.model.ComponentParameter;
 import com.flowmanagement.service.IComponentParameterService;
 
 @RestController
-@RequestMapping("/component_parameter")
+@RequestMapping("/component_parameters")
 public class ComponentParameterController {
 
 	@Autowired

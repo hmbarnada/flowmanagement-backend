@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.flowmanagement.model.Alternative;
-import com.flowmanagement.service.IAlternativeService;
+import com.flowmanagement.model.AlternativeParameter;
+import com.flowmanagement.service.IAlternativeParameterService;
 
 @RestController
-@RequestMapping("/alternatives")
-public class AlternativeController {
+@RequestMapping("/alternative_parameters")
+public class AlternativeParameterController {
 
 	@Autowired
-	private IAlternativeService service;
+	private IAlternativeParameterService service;
 	
 	@GetMapping
-	public List<Alternative> listar(){
+	public List<AlternativeParameter> listar(){
 		return service.listar();
 	}
 	
 	@GetMapping("/{id}")
-	public Alternative listarPorId(@PathVariable("id") Integer id) {
+	public AlternativeParameter listarPorId(@PathVariable("id") Integer id) {
 		return service.listarPorId(id);
 	}
 	
 	@PostMapping
-	public Alternative registrar(@RequestBody Alternative obj) {
+	public AlternativeParameter registrar(@RequestBody AlternativeParameter obj) {
 		return service.registrar(obj);
 	}
 	
 	@PutMapping
-	public Alternative modificar(@RequestBody Alternative obj) {
+	public AlternativeParameter modificar(@RequestBody AlternativeParameter obj) {
 		return service.modificar(obj);
 	}
 	

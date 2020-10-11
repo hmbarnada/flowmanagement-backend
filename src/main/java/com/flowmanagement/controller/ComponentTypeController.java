@@ -16,7 +16,7 @@ import com.flowmanagement.model.ComponentType;
 import com.flowmanagement.service.IComponentTypeService;
 
 @RestController
-@RequestMapping("/component_type")
+@RequestMapping("/component_types")
 public class ComponentTypeController {
 
 	@Autowired

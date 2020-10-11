@@ -2,9 +2,12 @@ package com.flowmanagement.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,46 +18,46 @@ public class Alternative {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "guideName")
-	private String guideName;
-	
-	@Column(name = "stepId")
-	private String stepId;
+	@Column(name = "name")
+	private String name;
 	
 	@Column(name = "label")
 	private String label;
 	
-	//private Condition condition;
-	
-	public Integer getAlternativeId() {
+	@ManyToOne
+	@JoinColumn(name = "id_step", nullable = false, foreignKey = @ForeignKey(name = "FK_alternative_step"))
+	private Step step;
+
+	public Integer getId() {
 		return id;
 	}
-	public void setAlternativeId(Integer id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getGuideName() {
-		return guideName;
+
+	public String getName() {
+		return name;
 	}
-	public void setGuideName(String guideName) {
-		this.guideName = guideName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getStepId() {
-		return stepId;
-	}
-	public void setStepId(String stepId) {
-		this.stepId = stepId;
-	}
+
 	public String getLabel() {
 		return label;
 	}
+
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	/*public Condition getCondition() {
-		return condition;
+
+	public Step getStep() {
+		return step;
 	}
-	public void setCondition(Condition condition) {
-		this.condition = condition;
-	}*/
-	
+
+	public void setStep(Step step) {
+		step = step;
+	}
+		
 }

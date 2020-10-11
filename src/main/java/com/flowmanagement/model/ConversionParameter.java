@@ -20,9 +20,12 @@ public class ConversionParameter {
 	@Column(name = "name")
     private String name;
 	
+	@Column(name = "value")
+    private String value;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_conversion_type", nullable = false, foreignKey = @ForeignKey(name = "FK_conversion_parameter_conversion_type"))
-	private ConversionType ConversionType;
+	private ConversionType conversionType;
 
 	public Integer getId() {
 		return id;
@@ -40,12 +43,20 @@ public class ConversionParameter {
 		this.name = name;
 	}
 
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
 	public ConversionType getConversionType() {
-		return ConversionType;
+		return conversionType;
 	}
 
 	public void setConversionType(ConversionType conversionType) {
-		ConversionType = conversionType;
+		conversionType = conversionType;
 	}
 
 }

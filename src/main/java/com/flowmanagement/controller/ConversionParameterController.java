@@ -16,7 +16,7 @@ import com.flowmanagement.model.ConversionParameter;
 import com.flowmanagement.service.IConversionParameterService;
 
 @RestController
-@RequestMapping("/conversion_parameter")
+@RequestMapping("/conversion_parameters")
 public class ConversionParameterController {
 
 	@Autowired

@@ -16,7 +16,7 @@ import com.flowmanagement.model.ConditionType;
 import com.flowmanagement.service.IConditionTypeService;
 
 @RestController
-@RequestMapping("/condition_type")
+@RequestMapping("/condition_types")
 public class ConditionTypeController {
 
 	@Autowired

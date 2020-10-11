@@ -11,22 +11,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "conversion")
-public class Conversion {
-
+@Table(name = "condition_parameter")
+public class ConditionParameter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name = "name")
-	private String name;
+    private String name;
 	
-	@Column(name = "label")
-	private String label;
+	@Column(name = "value")
+    private String value;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_conversion_type", nullable = false, foreignKey = @ForeignKey(name = "FK_conversion_conversion_type"))
-	private ConversionType conversionType;
+	@JoinColumn(name = "id_condition_type", nullable = false, foreignKey = @ForeignKey(name = "FK_condition_parameter_condition_type"))
+	private ConditionType conditionType;
 
 	public Integer getId() {
 		return id;
@@ -44,20 +43,20 @@ public class Conversion {
 		this.name = name;
 	}
 
-	public String getLabel() {
-		return label;
+	public String getValue() {
+		return value;
 	}
 
-	public void setLabel(String label) {
-		this.label = label;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
-	public ConversionType getConversionType() {
-		return conversionType;
+	public ConditionType getConditionType() {
+		return conditionType;
 	}
 
-	public void setConversionType(ConversionType conversionType) {
-		this.conversionType = conversionType;
+	public void setConditionType(ConditionType conditionType) {
+		conditionType = conditionType;
 	}
 
 }
