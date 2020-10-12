@@ -22,28 +22,28 @@ public class AlternativeController {
 	@Autowired
 	private IAlternativeService service;
 	
-	@GetMapping
-	public List<Alternative> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<Alternative> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Alternative listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public Alternative getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public Alternative registrar(@RequestBody Alternative obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public Alternative add(@RequestBody Alternative obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public Alternative modificar(@RequestBody Alternative obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public Alternative update(@RequestBody Alternative obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

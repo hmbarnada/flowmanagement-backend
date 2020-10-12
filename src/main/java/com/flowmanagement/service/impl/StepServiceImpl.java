@@ -17,28 +17,28 @@ public class StepServiceImpl implements IStepService{
 	private IStepRepo repo;
 	
 	@Override
-	public Step registrar(Step guide) {
+	public Step add(Step guide) {
 		return repo.save(guide);
 	}
 
 	@Override
-	public Step modificar(Step guide) {
+	public Step update(Step guide) {
 		return repo.save(guide);
 	}
 
 	@Override
-	public List<Step> listar() {
+	public List<Step> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Step listarPorId(Integer id) {
+	public Step getById(Integer id) {
 		Optional<Step> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Step();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 

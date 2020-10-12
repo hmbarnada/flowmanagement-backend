@@ -22,28 +22,28 @@ public class ConversionParameterController {
 	@Autowired
 	private IConversionParameterService service;
 	
-	@GetMapping
-	public List<ConversionParameter> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<ConversionParameter> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ConversionParameter listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public ConversionParameter getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public ConversionParameter registrar(@RequestBody ConversionParameter obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public ConversionParameter add(@RequestBody ConversionParameter obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public ConversionParameter modificar(@RequestBody ConversionParameter obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public ConversionParameter update(@RequestBody ConversionParameter obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

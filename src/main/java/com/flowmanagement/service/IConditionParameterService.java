@@ -6,9 +6,9 @@ import com.flowmanagement.model.ConditionParameter;
 
 public interface IConditionParameterService {
 
-	ConditionParameter registrar(ConditionParameter conditionParameter);
-	ConditionParameter modificar(ConditionParameter conditionParameter);
-	List<ConditionParameter> listar();
-	ConditionParameter listarPorId(Integer id);
-	void eliminar(Integer id);
+	ConditionParameter add(ConditionParameter conditionParameter);
+	ConditionParameter update(ConditionParameter conditionParameter);
+	List<ConditionParameter> getAll();
+	ConditionParameter getById(Integer id);
+	void delete(Integer id);
 }

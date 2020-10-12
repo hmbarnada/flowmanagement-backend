@@ -17,28 +17,28 @@ public class ComponentServiceImpl implements IComponentService {
 	private IComponentRepo repo;
 	
 	@Override
-	public Component registrar(Component component) {
+	public Component add(Component component) {
 		return repo.save(component);
 	}
 
 	@Override
-	public Component modificar(Component component) {
+	public Component update(Component component) {
 		return repo.save(component);
 	}
 
 	@Override
-	public List<Component> listar() {
+	public List<Component> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Component listarPorId(Integer id) {
+	public Component getById(Integer id) {
 		Optional<Component> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Component();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

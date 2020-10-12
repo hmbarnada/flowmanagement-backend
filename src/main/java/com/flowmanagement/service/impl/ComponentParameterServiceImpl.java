@@ -17,28 +17,28 @@ public class ComponentParameterServiceImpl implements IComponentParameterService
 	private IComponentParameterRepo repo;
 	
 	@Override
-	public ComponentParameter registrar(ComponentParameter componentParameter) {
+	public ComponentParameter add(ComponentParameter componentParameter) {
 		return repo.save(componentParameter);
 	}
 
 	@Override
-	public ComponentParameter modificar(ComponentParameter componentParameter) {
+	public ComponentParameter update(ComponentParameter componentParameter) {
 		return repo.save(componentParameter);
 	}
 
 	@Override
-	public List<ComponentParameter> listar() {
+	public List<ComponentParameter> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public ComponentParameter listarPorId(Integer id) {
+	public ComponentParameter getById(Integer id) {
 		Optional<ComponentParameter> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new ComponentParameter();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 

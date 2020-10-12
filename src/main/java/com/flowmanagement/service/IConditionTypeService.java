@@ -6,9 +6,9 @@ import com.flowmanagement.model.ConditionType;
 
 public interface IConditionTypeService {
 
-	ConditionType registrar(ConditionType conditionType);
-	ConditionType modificar(ConditionType conditionType);
-	List<ConditionType> listar();
-	ConditionType listarPorId(Integer id);
-	void eliminar(Integer id);
+	ConditionType add(ConditionType conditionType);
+	ConditionType update(ConditionType conditionType);
+	List<ConditionType> getAll();
+	ConditionType getById(Integer id);
+	void delete(Integer id);
 }

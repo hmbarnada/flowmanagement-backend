@@ -17,28 +17,28 @@ public class ConversionParameterServiceImpl implements IConversionParameterServi
 	private IConversionParameterRepo repo;
 	
 	@Override
-	public ConversionParameter registrar(ConversionParameter conversionParameter) {
+	public ConversionParameter add(ConversionParameter conversionParameter) {
 		return repo.save(conversionParameter);
 	}
 
 	@Override
-	public ConversionParameter modificar(ConversionParameter conversionParameter) {
+	public ConversionParameter update(ConversionParameter conversionParameter) {
 		return repo.save(conversionParameter);
 	}
 
 	@Override
-	public List<ConversionParameter> listar() {
+	public List<ConversionParameter> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public ConversionParameter listarPorId(Integer id) {
+	public ConversionParameter getById(Integer id) {
 		Optional<ConversionParameter> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new ConversionParameter();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

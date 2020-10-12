@@ -6,9 +6,9 @@ import com.flowmanagement.model.Alternative;
 
 public interface IAlternativeService {
 
-	Alternative registrar(Alternative alternative);
-	Alternative modificar(Alternative alternative);
-	List<Alternative> listar();
-	Alternative listarPorId(Integer id);
-	void eliminar(Integer id);
+	Alternative add(Alternative alternative);
+	Alternative update(Alternative alternative);
+	List<Alternative> getAll();
+	Alternative getById(Integer id);
+	void delete(Integer id);
 }

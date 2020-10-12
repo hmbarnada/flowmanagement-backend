@@ -17,28 +17,28 @@ public class ConditionTypeServiceImpl implements IConditionTypeService {
 	private IConditionTypeRepo repo;
 	
 	@Override
-	public ConditionType registrar(ConditionType conditionType) {
+	public ConditionType add(ConditionType conditionType) {
 		return repo.save(conditionType);
 	}
 
 	@Override
-	public ConditionType modificar(ConditionType conditionType) {
+	public ConditionType update(ConditionType conditionType) {
 		return repo.save(conditionType);
 	}
 
 	@Override
-	public List<ConditionType> listar() {
+	public List<ConditionType> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public ConditionType listarPorId(Integer id) {
+	public ConditionType getById(Integer id) {
 		Optional<ConditionType> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new ConditionType();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 

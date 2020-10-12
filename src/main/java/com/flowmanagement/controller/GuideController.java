@@ -22,28 +22,28 @@ public class GuideController {
 	@Autowired
 	private IGuideService service;
 	
-	@GetMapping
-	public List<Guide> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<Guide> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Guide listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public Guide getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public Guide registrar(@RequestBody Guide obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public Guide add(@RequestBody Guide obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public Guide modificar(@RequestBody Guide obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public Guide update(@RequestBody Guide obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

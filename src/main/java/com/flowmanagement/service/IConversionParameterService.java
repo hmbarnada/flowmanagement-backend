@@ -6,9 +6,9 @@ import com.flowmanagement.model.ConversionParameter;
 
 public interface IConversionParameterService {
 
-	ConversionParameter registrar(ConversionParameter conversionParameter);
-	ConversionParameter modificar(ConversionParameter conversionParameter);
-	List<ConversionParameter> listar();
-	ConversionParameter listarPorId(Integer id);
-	void eliminar(Integer id);
+	ConversionParameter add(ConversionParameter conversionParameter);
+	ConversionParameter update(ConversionParameter conversionParameter);
+	List<ConversionParameter> getAll();
+	ConversionParameter getById(Integer id);
+	void delete(Integer id);
 }

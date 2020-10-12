@@ -22,28 +22,28 @@ public class OperationTypeController {
 	@Autowired
 	private IOperationTypeService service;
 	
-	@GetMapping
-	public List<OperationType> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<OperationType> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public OperationType listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public OperationType getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public OperationType registrar(@RequestBody OperationType obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public OperationType add(@RequestBody OperationType obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public OperationType modificar(@RequestBody OperationType obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public OperationType update(@RequestBody OperationType obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

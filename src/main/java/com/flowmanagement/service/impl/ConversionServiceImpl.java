@@ -17,28 +17,28 @@ public class ConversionServiceImpl implements IConversionService {
 	private IConversionRepo repo;
 	
 	@Override
-	public Conversion registrar(Conversion conversion) {
+	public Conversion add(Conversion conversion) {
 		return repo.save(conversion);
 	}
 
 	@Override
-	public Conversion modificar(Conversion conversion) {
+	public Conversion update(Conversion conversion) {
 		return repo.save(conversion);
 	}
 
 	@Override
-	public List<Conversion> listar() {
+	public List<Conversion> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Conversion listarPorId(Integer id) {
+	public Conversion getById(Integer id) {
 		Optional<Conversion> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Conversion();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

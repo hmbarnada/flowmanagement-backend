@@ -17,28 +17,28 @@ public class AlternativeParameterServiceImpl implements IAlternativeParameterSer
 	private IAlternativeParameterRepo repo;
 	
 	@Override
-	public AlternativeParameter registrar(AlternativeParameter alternativeParameter) {
+	public AlternativeParameter add(AlternativeParameter alternativeParameter) {
 		return repo.save(alternativeParameter);
 	}
 
 	@Override
-	public AlternativeParameter modificar(AlternativeParameter alternativeParameter) {
+	public AlternativeParameter update(AlternativeParameter alternativeParameter) {
 		return repo.save(alternativeParameter);
 	}
 
 	@Override
-	public List<AlternativeParameter> listar() {
+	public List<AlternativeParameter> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public AlternativeParameter listarPorId(Integer id) {
+	public AlternativeParameter getById(Integer id) {
 		Optional<AlternativeParameter> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new AlternativeParameter();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

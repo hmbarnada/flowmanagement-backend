@@ -17,28 +17,28 @@ public class OperationTypeServiceImpl implements IOperationTypeService{
 	private IOperationTypeRepo repo;
 	
 	@Override
-	public OperationType registrar(OperationType operationType) {
+	public OperationType add(OperationType operationType) {
 		return repo.save(operationType);
 	}
 
 	@Override
-	public OperationType modificar(OperationType operationType) {
+	public OperationType update(OperationType operationType) {
 		return repo.save(operationType);
 	}
 
 	@Override
-	public List<OperationType> listar() {
+	public List<OperationType> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public OperationType listarPorId(Integer id) {
+	public OperationType getById(Integer id) {
 		Optional<OperationType> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new OperationType();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 		
 	}

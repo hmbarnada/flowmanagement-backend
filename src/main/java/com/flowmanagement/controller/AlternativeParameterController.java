@@ -22,28 +22,28 @@ public class AlternativeParameterController {
 	@Autowired
 	private IAlternativeParameterService service;
 	
-	@GetMapping
-	public List<AlternativeParameter> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<AlternativeParameter> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public AlternativeParameter listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public AlternativeParameter getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public AlternativeParameter registrar(@RequestBody AlternativeParameter obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public AlternativeParameter add(@RequestBody AlternativeParameter obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public AlternativeParameter modificar(@RequestBody AlternativeParameter obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public AlternativeParameter update(@RequestBody AlternativeParameter obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

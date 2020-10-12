@@ -17,28 +17,28 @@ public class ComponentTypeServiceImpl implements IComponentTypeService{
 	private IComponentTypeRepo repo;
 	
 	@Override
-	public ComponentType registrar(ComponentType componentType) {
+	public ComponentType add(ComponentType componentType) {
 		return repo.save(componentType);
 	}
 
 	@Override
-	public ComponentType modificar(ComponentType componentType) {
+	public ComponentType update(ComponentType componentType) {
 		return repo.save(componentType);
 	}
 
 	@Override
-	public List<ComponentType> listar() {
+	public List<ComponentType> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public ComponentType listarPorId(Integer id) {
+	public ComponentType getById(Integer id) {
 		Optional<ComponentType> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new ComponentType();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

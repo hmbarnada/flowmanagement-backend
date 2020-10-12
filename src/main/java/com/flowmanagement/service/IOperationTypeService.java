@@ -6,9 +6,9 @@ import com.flowmanagement.model.OperationType;
 
 public interface IOperationTypeService {
 
-	OperationType registrar(OperationType operationType);
-	OperationType modificar(OperationType operationType);
-	List<OperationType> listar();
-	OperationType listarPorId(Integer id);
-	void eliminar(Integer id);
+	OperationType add(OperationType operationType);
+	OperationType update(OperationType operationType);
+	List<OperationType> getAll();
+	OperationType getById(Integer id);
+	void delete(Integer id);
 }

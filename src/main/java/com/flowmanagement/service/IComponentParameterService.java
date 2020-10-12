@@ -6,9 +6,9 @@ import com.flowmanagement.model.ComponentParameter;
 
 public interface IComponentParameterService {
 
-	ComponentParameter registrar(ComponentParameter componentParameter);
-	ComponentParameter modificar(ComponentParameter componentParameter);
-	List<ComponentParameter> listar();
-	ComponentParameter listarPorId(Integer id);
-	void eliminar(Integer id);
+	ComponentParameter add(ComponentParameter componentParameter);
+	ComponentParameter update(ComponentParameter componentParameter);
+	List<ComponentParameter> getAll();
+	ComponentParameter getById(Integer id);
+	void delete(Integer id);
 }

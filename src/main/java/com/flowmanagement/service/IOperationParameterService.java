@@ -6,9 +6,9 @@ import com.flowmanagement.model.OperationParameter;
 
 public interface IOperationParameterService {
 
-	OperationParameter registrar(OperationParameter operationParameter);
-	OperationParameter modificar(OperationParameter operationParameter);
-	List<OperationParameter> listar();
-	OperationParameter listarPorId(Integer id);
-	void eliminar(Integer id);
+	OperationParameter add(OperationParameter operationParameter);
+	OperationParameter update(OperationParameter operationParameter);
+	List<OperationParameter> getAll();
+	OperationParameter getById(Integer id);
+	void delete(Integer id);
 }

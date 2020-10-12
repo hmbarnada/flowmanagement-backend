@@ -17,28 +17,28 @@ public class OperationParameterServiceImpl implements IOperationParameterService
 	private IOperationParameterRepo repo;
 	
 	@Override
-	public OperationParameter registrar(OperationParameter operationParameter) {
+	public OperationParameter add(OperationParameter operationParameter) {
 		return repo.save(operationParameter);
 	}
 
 	@Override
-	public OperationParameter modificar(OperationParameter operationParameter) {
+	public OperationParameter update(OperationParameter operationParameter) {
 		return repo.save(operationParameter);
 	}
 
 	@Override
-	public List<OperationParameter> listar() {
+	public List<OperationParameter> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public OperationParameter listarPorId(Integer id) {
+	public OperationParameter getById(Integer id) {
 		Optional<OperationParameter> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new OperationParameter();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

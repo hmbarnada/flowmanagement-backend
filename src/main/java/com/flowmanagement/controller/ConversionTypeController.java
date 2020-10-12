@@ -22,28 +22,28 @@ public class ConversionTypeController {
 	@Autowired
 	private IConversionTypeService service;
 	
-	@GetMapping
-	public List<ConversionType> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<ConversionType> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ConversionType listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public ConversionType getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public ConversionType registrar(@RequestBody ConversionType obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public ConversionType add(@RequestBody ConversionType obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public ConversionType modificar(@RequestBody ConversionType obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public ConversionType update(@RequestBody ConversionType obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

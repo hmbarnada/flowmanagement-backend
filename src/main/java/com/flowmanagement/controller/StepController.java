@@ -22,29 +22,29 @@ public class StepController {
 	@Autowired
 	private IStepService service;
 	
-	@GetMapping
-	public List<Step> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<Step> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public Step listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public Step getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public Step registrar(@RequestBody Step obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public Step add(@RequestBody Step obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public Step modificar(@RequestBody Step obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public Step update(@RequestBody Step obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 
 }

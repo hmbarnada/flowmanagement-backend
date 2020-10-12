@@ -17,28 +17,28 @@ public class ConditionParameterServiceImpl implements IConditionParameterService
 	private IConditionParameterRepo repo;
 	
 	@Override
-	public ConditionParameter registrar(ConditionParameter conditionParameter) {
+	public ConditionParameter add(ConditionParameter conditionParameter) {
 		return repo.save(conditionParameter);
 	}
 
 	@Override
-	public ConditionParameter modificar(ConditionParameter conditionParameter) {
+	public ConditionParameter update(ConditionParameter conditionParameter) {
 		return repo.save(conditionParameter);
 	}
 
 	@Override
-	public List<ConditionParameter> listar() {
+	public List<ConditionParameter> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public ConditionParameter listarPorId(Integer id) {
+	public ConditionParameter getById(Integer id) {
 		Optional<ConditionParameter> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new ConditionParameter();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

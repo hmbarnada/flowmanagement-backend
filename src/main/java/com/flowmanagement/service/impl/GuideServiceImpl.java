@@ -17,28 +17,28 @@ public class GuideServiceImpl implements IGuideService{
 	private IGuideRepo repo;
 	
 	@Override
-	public Guide registrar(Guide guide) {
+	public Guide add(Guide guide) {
 		return repo.save(guide);
 	}
 
 	@Override
-	public Guide modificar(Guide guide) {
+	public Guide update(Guide guide) {
 		return repo.save(guide);
 	}
 
 	@Override
-	public List<Guide> listar() {
+	public List<Guide> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Guide listarPorId(Integer id) {
+	public Guide getById(Integer id) {
 		Optional<Guide> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Guide();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 

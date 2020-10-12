@@ -17,28 +17,28 @@ public class OperationServiceImpl implements IOperationService {
 	private IOperationRepo repo;
 	
 	@Override
-	public Operation registrar(Operation operation) {
+	public Operation add(Operation operation) {
 		return repo.save(operation);
 	}
 
 	@Override
-	public Operation modificar(Operation operation) {
+	public Operation update(Operation operation) {
 		return repo.save(operation);
 	}
 
 	@Override
-	public List<Operation> listar() {
+	public List<Operation> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Operation listarPorId(Integer id) {
+	public Operation getById(Integer id) {
 		Optional<Operation> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Operation();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

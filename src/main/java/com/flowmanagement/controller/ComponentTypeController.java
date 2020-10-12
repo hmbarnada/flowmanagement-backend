@@ -22,28 +22,28 @@ public class ComponentTypeController {
 	@Autowired
 	private IComponentTypeService service;
 	
-	@GetMapping
-	public List<ComponentType> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<ComponentType> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ComponentType listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public ComponentType getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public ComponentType registrar(@RequestBody ComponentType obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public ComponentType add(@RequestBody ComponentType obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public ComponentType modificar(@RequestBody ComponentType obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public ComponentType update(@RequestBody ComponentType obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

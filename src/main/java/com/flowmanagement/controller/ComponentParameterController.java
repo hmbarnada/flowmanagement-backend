@@ -22,28 +22,28 @@ public class ComponentParameterController {
 	@Autowired
 	private IComponentParameterService service;
 	
-	@GetMapping
-	public List<ComponentParameter> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<ComponentParameter> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ComponentParameter listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public ComponentParameter getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public ComponentParameter registrar(@RequestBody ComponentParameter obj) {
-		return service.registrar(obj);
+	@PostMapping("/add")
+	public ComponentParameter add(@RequestBody ComponentParameter obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public ComponentParameter modificar(@RequestBody ComponentParameter obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public ComponentParameter update(@RequestBody ComponentParameter obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

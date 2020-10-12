@@ -22,28 +22,28 @@ public class ConditionParameterController {
 	@Autowired
 	private IConditionParameterService service;
 	
-	@GetMapping
-	public List<ConditionParameter> listar(){
-		return service.listar();
+	@GetMapping("/")
+	public List<ConditionParameter> getAll(){
+		return service.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ConditionParameter listarPorId(@PathVariable("id") Integer id) {
-		return service.listarPorId(id);
+	public ConditionParameter getById(@PathVariable("id") Integer id) {
+		return service.getById(id);
 	}
 	
-	@PostMapping
-	public ConditionParameter registrar(@RequestBody ConditionParameter obj) {
-		return service.registrar(obj);
+	@PostMapping("add")
+	public ConditionParameter add(@RequestBody ConditionParameter obj) {
+		return service.add(obj);
 	}
 	
-	@PutMapping
-	public ConditionParameter modificar(@RequestBody ConditionParameter obj) {
-		return service.modificar(obj);
+	@PutMapping("/update")
+	public ConditionParameter update(@RequestBody ConditionParameter obj) {
+		return service.update(obj);
 	}
 	
-	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Integer id) {
-		service.eliminar(id);
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		service.delete(id);
 	}
 }

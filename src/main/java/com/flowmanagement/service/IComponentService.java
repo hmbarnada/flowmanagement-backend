@@ -6,9 +6,9 @@ import com.flowmanagement.model.Component;
 
 public interface IComponentService {
 
-	Component registrar(Component component);
-	Component modificar(Component component);
-	List<Component> listar();
-	Component listarPorId(Integer id);
-	void eliminar(Integer id);
+	Component add(Component component);
+	Component update(Component component);
+	List<Component> getAll();
+	Component getById(Integer id);
+	void delete(Integer id);
 }

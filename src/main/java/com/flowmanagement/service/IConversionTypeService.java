@@ -6,9 +6,9 @@ import com.flowmanagement.model.ConversionType;
 
 public interface IConversionTypeService {
 
-	ConversionType registrar(ConversionType conversionType);
-	ConversionType modificar(ConversionType conversionType);
-	List<ConversionType> listar();
-	ConversionType listarPorId(Integer id);
-	void eliminar(Integer id);
+	ConversionType add(ConversionType conversionType);
+	ConversionType update(ConversionType conversionType);
+	List<ConversionType> getAll();
+	ConversionType getById(Integer id);
+	void delete(Integer id);
 }

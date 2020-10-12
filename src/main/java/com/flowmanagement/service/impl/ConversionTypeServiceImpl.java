@@ -16,28 +16,28 @@ public class ConversionTypeServiceImpl implements IConversionTypeService{
 	private IConversionTypeRepo repo;
 	
 	@Override
-	public ConversionType registrar(ConversionType conversionType) {
+	public ConversionType add(ConversionType conversionType) {
 		return repo.save(conversionType);
 	}
 
 	@Override
-	public ConversionType modificar(ConversionType conversionType) {
+	public ConversionType update(ConversionType conversionType) {
 		return repo.save(conversionType);
 	}
 
 	@Override
-	public List<ConversionType> listar() {
+	public List<ConversionType> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public ConversionType listarPorId(Integer id) {
+	public ConversionType getById(Integer id) {
 		Optional<ConversionType> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new ConversionType();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

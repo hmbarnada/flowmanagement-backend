@@ -6,9 +6,9 @@ import com.flowmanagement.model.AlternativeParameter;
 
 public interface IAlternativeParameterService {
 
-	AlternativeParameter registrar(AlternativeParameter alternativeParameter);
-	AlternativeParameter modificar(AlternativeParameter alternativeParameter);
-	List<AlternativeParameter> listar();
-	AlternativeParameter listarPorId(Integer id);
-	void eliminar(Integer id);
+	AlternativeParameter add(AlternativeParameter alternativeParameter);
+	AlternativeParameter update(AlternativeParameter alternativeParameter);
+	List<AlternativeParameter> getAll();
+	AlternativeParameter getById(Integer id);
+	void delete(Integer id);
 }

@@ -17,28 +17,28 @@ public class ConditionServiceImpl implements IConditionService{
 	private IConditionRepo repo;
 	
 	@Override
-	public Condition registrar(Condition condition) {
+	public Condition add(Condition condition) {
 		return repo.save(condition);
 	}
 
 	@Override
-	public Condition modificar(Condition condition) {
+	public Condition update(Condition condition) {
 		return repo.save(condition);
 	}
 
 	@Override
-	public List<Condition> listar() {
+	public List<Condition> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Condition listarPorId(Integer id) {
+	public Condition getById(Integer id) {
 		Optional<Condition> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Condition();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }

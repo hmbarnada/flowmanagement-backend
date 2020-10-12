@@ -17,28 +17,28 @@ public class AlternativeServiceImpl implements IAlternativeService {
 	private IAlternativeRepo repo;
 	
 	@Override
-	public Alternative registrar(Alternative alternative) {
+	public Alternative add(Alternative alternative) {
 		return repo.save(alternative);
 	}
 
 	@Override
-	public Alternative modificar(Alternative alternative) {
+	public Alternative update(Alternative alternative) {
 		return repo.save(alternative);
 	}
 
 	@Override
-	public List<Alternative> listar() {
+	public List<Alternative> getAll() {
 		return repo.findAll();
 	}
 
 	@Override
-	public Alternative listarPorId(Integer id) {
+	public Alternative getById(Integer id) {
 		Optional<Alternative> op = repo.findById(id);
 		return op.isPresent() ? op.get() : new Alternative();
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
 }
